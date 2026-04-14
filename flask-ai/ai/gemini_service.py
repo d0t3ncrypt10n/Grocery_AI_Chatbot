@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 # ─── Gemini API Setup ─────────────────────────────────────────────────────────
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash-preview-04-17")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
 gemini_available = False
 client = None
 
