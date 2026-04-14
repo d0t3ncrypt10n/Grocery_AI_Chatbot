@@ -3,110 +3,70 @@
 
 [![Last Commit](https://img.shields.io/github/last-commit/d0t3ncrypt10n/Grocery_AI_Chatbot?style=for-the-badge)](https://github.com/d0t3ncrypt10n/Grocery_AI_Chatbot/commits)  
 [![Repo Language](https://img.shields.io/github/languages/top/d0t3ncrypt10n/Grocery_AI_Chatbot?style=for-the-badge)](https://github.com/d0t3ncrypt10n/Grocery_AI_Chatbot)  
-[![Languages Count](https://img.shields.io/github/languages/count/d0t3ncrypt10n/Grocery_AI_Chatbot?style=for-the-badge)](https://github.com/d0t3ncrypt10n/Grocery_AI_Chatbot)  
-
----
-
-## 📚 Table of Contents
-
-- [📌 Overview](#-overview)
-- [🚀 Features](#-features)
-- [🛠️ Getting Started](#-getting-started)
-  - [✅ Prerequisites](#-prerequisites)
-  - [📦 Installation](#-installation)
-- [💡 Usage](#-usage)
-- [🧪 Testing](#-testing)
-- [📄 License](#-license)
-- [🤝 Contributing](#-contributing)
 
 ---
 
 ## 📌 Overview
 
-**Grocery_AI_Chatbot** is a smart, conversational assistant that revolutionizes grocery shopping and pantry management. Through intuitive natural language chats, it helps you organize your kitchen, discover recipes, scale ingredients, and manage inventories like never before.
+**Grocery_AI_Chatbot** is a smart, conversational assistant that revolutionizes grocery shopping. Built on a modern **Hybrid Microservices Architecture**, it seamlessly understands natural language queries, fetches recipes, scales ingredients, matches them to real e-commerce products, and synchronizes a fully interactive shopping cart.
 
 ---
 
 ## 🚀 Features
 
-- 🧠 **Natural Language Understanding**  
-  Interact naturally using text – plan meals, ask for recipes, and manage your pantry.
+- 🧠 **Dynamic NLP Pipeline** (Flask AI Service)
+  Interactive chat engine fueled by advanced fallback NLP processing and Gemini API. 
+- 🛒 **E-commerce Engine** (Node.js + SQLite)
+  Intelligently maps raw recipe ingredients (e.g., "Pyaaz") to real database products (e.g., "Onions (1 kg)") through a multi-step fuzzy match pipeline.
+- 🎨 **Modern SPA Interface** (React + Vite + Zustand)
+  Dark-themed glassmorphic UI offering a frictionless chat and cart sidebar experience.
+- 💵 **Budget Modes & Substitutions**
+  Automatically adjusts suggestions to fit under specific budgets or offers vegan/healthier substitutes if items are out of stock.
 
-- 🛒 **Smart Grocery Management**  
-  Automatically track and update your pantry, and get personalized grocery suggestions.
+---
 
-- 📊 **Recipe Scaling & Discovery**  
-  Fetch recipes dynamically and adjust quantities based on servings or available ingredients.
+## 🏗️ Architecture
 
-- 🌐 **Interactive Web UI**  
-  Communicate in real-time through an elegant and responsive frontend interface.
-
-- 💾 **Data Persistence**  
-  Keeps your inventory, preferences, and sessions consistent with seamless backend integration.
+```
+React Frontend (:5173) ↔ Flask AI Service (:5000) ↔ Node.js Backend (:4000)
+```
 
 ---
 
 ## 🛠️ Getting Started
 
-### ✅ Prerequisites
-
-- 📌 **Programming Language**: Python  
-- 📌 **Package Manager**: Conda
-
----
-
-### 📦 Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/d0t3ncrypt10n/Grocery_AI_Chatbot
-   cd Grocery_AI_Chatbot
-   ```
-
-2. **Create and activate the conda environment:**
-   ```bash
-   conda env create -f conda.yml
-   conda activate grocery_ai_env
-   ```
-
----
-
-## 💡 Usage
-
-Once the environment is ready, you can launch the chatbot with:
-
+### 1. Flask AI Service (Port 5000)
+Handles NLP and conversational intelligence.
 ```bash
-conda activate grocery_ai_env
+cd flask-ai
+pip install -r requirements.txt
 python app.py
 ```
+*(Requires Python 3.9+)*
 
-📍 *Note:* Replace `app.py` with your actual entry point if different.
-
----
-
-## 🧪 Testing
-
-The project uses **`pytest`** for testing. Run the tests using:
-
+### 2. Node.js Backend (Port 4000)
+Handles product inventory, ingredient mapping, and cart operations.
 ```bash
-conda activate grocery_ai_env
-pytest
+cd node-backend
+npm install
+npm start
 ```
+*(Running `npm start` automatically seeds the SQLite DB with 50+ local products!)*
+
+### 3. React Frontend (Port 5173)
+The interactive Chat and Cart UI.
+```bash
+cd react-frontend
+npm install
+npm run dev
+```
+
+Once all services are up, simply open `http://localhost:5173` in your browser.
 
 ---
 
 ## 📄 License
-
 This project is licensed under the [MIT License](LICENSE).
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to:
-- ⭐ Star the project  
-- 📥 Fork and submit pull requests  
-- 🐞 Report bugs or request features in [Issues](https://github.com/d0t3ncrypt10n/Grocery_AI_Chatbot/issues)
 
 ---
 

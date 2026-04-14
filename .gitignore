@@ -25,6 +25,10 @@ venv/
 env/
 ENV/
 .env
+.venv/
+
+# Database
+database.sqlite
 
 # IDE
 .idea/
